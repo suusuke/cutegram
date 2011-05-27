@@ -31,7 +31,9 @@ function ajax() {
   $json = json_decode($contents, true);
 
   $responce = "";
-  $responce .= "<input type=\"hidden\" id=\"max_tag_id\" value=".$json['pagination']['next_max_tag_id']." />";
+  if (!empty($json['pagination']['next_max_tag_id'])) {
+    $responce .= "<input type=\"hidden\" id=\"max_tag_id\" value=".$json['pagination']['next_max_tag_id']." />";
+  }
   foreach ($json['data'] as $value) {
       $responce .= responceimage($value);
   }
@@ -56,7 +58,7 @@ function responceimage($value) {
   $nick = $value["user"]["username"];
   $avatar = $value["user"]["profile_picture"];
 
-  return "<div class=\"thumb\"><img src=\"$avatar\" width=\"32\" class=\"mini\"/> $nick<br/> <span class=\"time\">$time</span><br/><a href=\"$link\"><img src=\"$thumb\"/></a></div>";
+  return "<div class=\"thumb\"><img src=\"$avatar\" width=\"32\" class=\"mini\"/> $nick<br/> <span class=\"time\">$time</span><br/><a href=\"$link\"><img class=\"pic\" src=\"$thumb\"/></a></div>";
 
 }
 ?>

@@ -1,7 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $("#loading").bind("ajaxSend", function(){
-        $("#list").html();
+        $("#list").html('');
         $(this).show();
     }).bind("ajaxComplete", function(){
         $(this).hide();
