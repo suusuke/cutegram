@@ -13,7 +13,7 @@ $(document).ready(function() {
             max_tag_id = $("#max_tag_id").val();
         }
         
-        $.post('/cutegram/?/ajax/'+max_tag_id, {
+        $.post('/cutegram/ajax/'+max_tag_id, {
             
         }, function(result, status) {
             $("#list").html(result);
@@ -21,6 +21,7 @@ $(document).ready(function() {
     });
 
     $("#more_link").click();
+    
 });
 </script>
 
